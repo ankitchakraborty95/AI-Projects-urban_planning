@@ -80,6 +80,7 @@ def gen_rand_solution(board, indust, comm, resid):
         sol_board[rand_y][rand_x] = 'R'
     return sol_board
 
+# Score a provided board based on the original board
 def score_solution(orig_board, sol_board):
     score = 0
     x = 0
@@ -146,6 +147,7 @@ def score_solution(orig_board, sol_board):
         y += 1
     return score
 
+# Finds the coordinates of all instances of a building
 def find_all_coordinates(building, board):
     coordinates = []
     y = 0
