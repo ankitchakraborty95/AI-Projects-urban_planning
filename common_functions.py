@@ -75,13 +75,79 @@ def score_solution(orig_board, sol_board):
     score = 0
     x = 0
     y = 0
+    r_coord = find_all_coordinates('R', sol_board)
+    c_coord = find_all_coordinates('C', sol_board)
+    i_coord = find_all_coordinates('I', sol_board)
     for row in sol_board:
         for plot in row:
-            if plot== ' ' or plot == -1 or plot == 'X' or plot == 'S':
+            if plot== ' ' or plot == -1:
                 score += 0
-            else:
+            elif plot == 'X':
+                # Industrial zones within 2 tiles take a penalty of -10
+                for coord in i_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score -= 10
+                # Commercial and residential zones within 2 tiles take a penalty of -20
+                for coord in r_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score -= 20
+                for coord in c_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score -= 20
+            elif plot == 'S':
+                # Residential zones within 2 tiles gain a bonus of 10 points
+                for coord in r_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score += 10
+            elif plot == 'I':
+                # For each industrial tile within 2 squares, there is a bonus of 2 points
+                for coord in i_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score += 2
+                score -= 2 + orig_board[y][x]
+            elif plot == 'R':
+                # For each industrial site within 3 squares there is a penalty of 5 points
+                for coord in i_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=3:
+                        score -= 5
+                # However, for each commercial site with 3 squares there is a bonus of 4 points
+                for coord in c_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=3:
+                        score += 4
+                score -= 2 + orig_board[y][x]
+            elif plot == 'C':
+                # For each residential tile within 3 squares, there is a bonus of 4 points
+                for coord in r_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=3:
+                        score += 4
+                # For each commercial site with 2 squares, there is a penalty of 4 points
+                for coord in c_coord:
+                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
+                    if dist <=2:
+                        score -= 4
                 score -= 2 + orig_board[y][x]
             x += 1
         x = 0
         y += 1
     return score
+
+def find_all_coordinates(building, board):
+    coordinates = []
+    y = 0
+    x = 0
+    for row in board:
+        for plot in row:
+            if plot == building:
+                coordinates.append((y, x))
+            x += 1
+        x = 0
+        y += 1
+    return coordinates
