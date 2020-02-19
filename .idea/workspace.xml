@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52349bda-c91e-4824-9a76-4ab6c99694d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/genetic_algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urban_planning.py" beforeDir="false" afterPath="$PROJECT_DIR$/urban_planning.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,38 +25,55 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3499" />
+          <entry key="py" value="4483" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3499" />
+          <entry key="Python" value="4483" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1058">
-              <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+            <state relative-caret-position="375">
+              <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="43" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1582138612482" expanded="true" signature="988:1418" ph="..." />
-                <marker date="1582138612482" expanded="true" signature="2618:2619" ph="..." />
-                <marker date="1582138612482" expanded="true" signature="5578:5583" ph="..." />
+                <marker date="1582140927452" expanded="true" signature="988:1418" ph="..." />
+                <marker date="1582140927452" expanded="true" signature="2618:2619" ph="..." />
+                <marker date="1582140927452" expanded="true" signature="5578:5583" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+              <folding>
+                <marker date="1582143050442" expanded="true" signature="270:275" ph="..." />
+                <marker date="1582143050442" expanded="true" signature="312:317" ph="..." />
+                <marker date="1582143050442" expanded="true" signature="626:646" ph="..." />
+                <marker date="1582143050442" expanded="true" signature="668:728" ph="..." />
+                <marker date="1582143050442" expanded="true" signature="752:796" ph="..." />
+                <marker date="1582143050442" expanded="true" signature="995:996" ph="..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/urban_planning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="135">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -89,8 +106,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/urban_planning.py" />
         <option value="$PROJECT_DIR$/common_functions.py" />
+        <option value="$PROJECT_DIR$/urban_planning.py" />
+        <option value="$PROJECT_DIR$/genetic_algorithm.py" />
       </list>
     </option>
   </component>
@@ -180,7 +198,7 @@
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -205,8 +223,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/urban_planning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="135">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -215,13 +233,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1058">
-          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        <state relative-caret-position="375">
+          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="43" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1582138612482" expanded="true" signature="988:1418" ph="..." />
-            <marker date="1582138612482" expanded="true" signature="2618:2619" ph="..." />
-            <marker date="1582138612482" expanded="true" signature="5578:5583" ph="..." />
+            <marker date="1582140927452" expanded="true" signature="988:1418" ph="..." />
+            <marker date="1582140927452" expanded="true" signature="2618:2619" ph="..." />
+            <marker date="1582140927452" expanded="true" signature="5578:5583" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <folding>
+            <marker date="1582143050442" expanded="true" signature="270:275" ph="..." />
+            <marker date="1582143050442" expanded="true" signature="312:317" ph="..." />
+            <marker date="1582143050442" expanded="true" signature="626:646" ph="..." />
+            <marker date="1582143050442" expanded="true" signature="668:728" ph="..." />
+            <marker date="1582143050442" expanded="true" signature="752:796" ph="..." />
+            <marker date="1582143050442" expanded="true" signature="995:996" ph="..." />
           </folding>
         </state>
       </provider>

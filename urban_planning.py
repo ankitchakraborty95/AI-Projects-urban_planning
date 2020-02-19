@@ -1,15 +1,13 @@
 from common_functions import *
+from genetic_algorithm import genetic_algorithm
 import random
 import numpy
 import sys
 
 def urban_plan(fname, alg):
     layout = read_File(fname)
-    rand_solution = gen_rand_solution(layout[0], layout[1], layout[2], layout[3])
-    score = score_solution(layout[0], rand_solution)
-    for c in rand_solution:
-        print(c)
-    print(score)
+    if alg == 'GA':
+        genetic_algorithm(layout)
     pass
 
 if __name__ == "__main__":
