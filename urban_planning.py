@@ -5,10 +5,10 @@ import sys
 
 def urban_plan(fname, alg):
     layout = read_File(fname)
-    rand_solution = gen_rand_solution(layout)
-    score = score_solution(layout, rand_solution)
-    for x in rand_solution:
-        print(x)
+    rand_solution = gen_rand_solution(layout[0], layout[1], layout[2], layout[3])
+    score = score_solution(layout[0], rand_solution)
+    for c in rand_solution:
+        print(c)
     print(score)
     pass
 

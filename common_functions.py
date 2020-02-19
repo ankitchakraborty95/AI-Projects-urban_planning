@@ -4,6 +4,10 @@ import numpy
 # Read a text file and generate a board representation as a 2D array
 def read_File(fname):
     board = []
+    line_num = 0
+    i_max = 0
+    c_max = 0
+    r_max = 0
     with open(fname, 'r', encoding='utf-8-sig') as layout:
         for line in layout:
             trantab = str.maketrans(dict.fromkeys(',\n'))
@@ -12,10 +16,16 @@ def read_File(fname):
             for x in range(0, len(line_array)):
                 if is_intstring(line_array[x]):
                     line_array[x] = int(line_array[x])
-            board.append(line_array)
-    start_board = fill_board(board)
-    return start_board
-    pass
+            if line_num == 0:
+                i_max = line_array[0]
+            elif line_num == 1:
+                c_max = line_array[0]
+            elif line_num == 2:
+                r_max = line_array[0]
+            else:
+                board.append(line_array)
+            line_num+=1
+    return [board, i_max, c_max, r_max]
 
 # checks the max width of the layout
 def check_max(layout):
@@ -41,34 +51,33 @@ def is_intstring (s):
     except ValueError:
         return False
 
-# Given a 2D array layout, homogenizes the width by representing empty spaces as -1
-def fill_board(layout):
-    max_width = check_max(layout)
-    board = []
-    i = 0
-    for row in layout:
-        board.append([])
-        for index in range(0, max_width):
-            if is_inRange(row, index):
-                board[i].append(row[index])
-            else:
-                board[i].append(-1)
-        i+=1
-    return board
-
 # Should have 4 possibilities, I - Industrial,  C - Commerce, R - Residential, or no development
-def gen_rand_solution(board):
-    dev_opt = ['I', 'C', 'R', ' ']
-    sol_board = []
+def gen_rand_solution(board, indust, comm, resid):
+    sol_board = [plot[:] for plot in board]
+    height = len(board) -1
+    width = len(board[0]) -1
     i = 0
-    for row in board:
-        sol_board.append([])
-        for plot in row:
-            if plot == -1 or plot == 'X' or plot == 'S':
-                sol_board[i].append(plot)
-            else:
-                sol_board[i].append(dev_opt[random.randint(0, 3)])
-        i += 1
+    for x in range(0, indust):
+        rand_y = random.randint(0, height)
+        rand_x = random.randint(0, width)
+        while not is_intstring(sol_board[rand_y][rand_x]):
+            rand_y = random.randint(0, height)
+            rand_x = random.randint(0, width)
+        sol_board[rand_y][rand_x] = 'I'
+    for x in range(0, comm):
+        rand_y = random.randint(0, height)
+        rand_x = random.randint(0, width)
+        while not is_intstring(sol_board[rand_y][rand_x]):
+            rand_y = random.randint(0, height)
+            rand_x = random.randint(0, width)
+        sol_board[rand_y][rand_x] = 'C'
+    for x in range(0, resid):
+        rand_y = random.randint(0, height)
+        rand_x = random.randint(0, width)
+        while not is_intstring(sol_board[rand_y][rand_x]):
+            rand_y = random.randint(0, height)
+            rand_x = random.randint(0, width)
+        sol_board[rand_y][rand_x] = 'R'
     return sol_board
 
 def score_solution(orig_board, sol_board):
@@ -80,9 +89,7 @@ def score_solution(orig_board, sol_board):
     i_coord = find_all_coordinates('I', sol_board)
     for row in sol_board:
         for plot in row:
-            if plot== ' ' or plot == -1:
-                score += 0
-            elif plot == 'X':
+            if plot == 'X':
                 # Industrial zones within 2 tiles take a penalty of -10
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
