@@ -220,7 +220,7 @@ def get_worst_fit(pop):
 def get_parents(pop):
     best_sort = get_best_fit([member[:] for member in pop])
     parents = []
-    for top in range(0, parent_grp_size):
+    for top in range(0, elitism_factor):
         parents.append(best_sort[top])
     return parents
 def culling_pop(pop):
@@ -372,8 +372,8 @@ def mutate_board(board):
     if(len(i_cord)==0):
         t = True
         while(t):
-            row = random.randint(0,len(board)-1)
-            col = random.randint(0,len(board)-1)
+            row = random.randint(0,(len(board)-1))
+            col = random.randint(0,(len(board[0])-1))
             if(board[row][col]!='X' and board[row][col]!='S' and board[row][col]!='C' and board[row][col]!='R'):
                 board[row][col]='I'
                 t=False
@@ -382,7 +382,7 @@ def mutate_board(board):
         t = True
         while (t):
             row = random.randint(0, len(board) - 1)
-            col = random.randint(0, len(board) - 1)
+            col = random.randint(0, len(board[0]) - 1)
             if (board[row][col] != 'X' and board[row][col] != 'S' and board[row][col] != 'I' and board[row][
                 col] != 'R'):
                 board[row][col] = 'C'
@@ -392,7 +392,7 @@ def mutate_board(board):
         t = True
         while (t):
             row = random.randint(0, len(board) - 1)
-            col = random.randint(0, len(board) - 1)
+            col = random.randint(0, len(board[0]) - 1)
             if (board[row][col] != 'X' and board[row][col] != 'S' and board[row][col] != 'I' and board[row][
                 col] != 'C'):
                 board[row][col] = 'R'
@@ -403,11 +403,10 @@ def print_board(board):
     for x in board:
         print(x)
 ######################################################################################################################################################################
-pop_size = 100
-parent_grp_size = 5
+pop_size = 400
+elitism_factor = 10
 culling_factor = 3
-mutation_factor = 3
-input_board = read_File(r"H:\\WPI\spring 20\AI\ASSIGNMENT 1\urban 1.txt")
+input_board = read_File(r"H:\\WPI\spring 20\AI\ASSIGNMENT 1\urban 2.txt")
 print_board(input_board)
 initial_pop = gen_population(input_board)
 curr_pop = copy.deepcopy(initial_pop)
@@ -432,7 +431,7 @@ while(run):
     pop_after_culling = culling_pop(curr_pop)
     # print("pop after culling")
     # print_board(pop_after_culling)
-    children_count = pop_size - parent_grp_size
+    children_count = pop_size - elitism_factor
     i = 0
     while (children_count > 0):
         if (children_count != 1):
@@ -453,7 +452,7 @@ while(run):
     #print("end time",end_time)
     execution_time = end_time-start_time
     #run = run-1
-    if(9.5<execution_time<=10):
+    if(9.9<execution_time<=10.2):
         print("time is up baby")
         print("execution time",execution_time)
         run = False
