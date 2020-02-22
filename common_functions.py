@@ -226,58 +226,14 @@ def get_parents(pop,elitism_factor):
 def culling_pop(pop,culling_factor):
     pop_copy = copy.deepcopy(pop)
     get_worst_fit(pop_copy)
-    # print("worst sort")
-    # print_board(get_worst_fit(pop_copy))
     for i in range(0,culling_factor):
-        #print("removing",pop_copy[0])
         del pop_copy[0]
     return pop_copy
 
-# Creates children based off 2 parents
-# Simply cuts the 2D array in half between rows, and stitchs the other half on
-def create_children(reference, mom, dad):
-    height = len(mom)
-    divide = int(height/2)
-    mom_clone = copy.deepcopy(mom)
-    dad_clone = copy.deepcopy(dad)
-    # print("mom")
-    # print_board(mom_clone)
-    # print("dad")
-    # print_board(dad_clone)
-    child1 = []
-    child2 = []
-    for x in range(0, divide):
-        child1.append(mom_clone[x])
-        child2.append(dad_clone[x])
-    for y in range(divide, height):
-        child1.append(dad_clone[y])
-        child2.append(mom_clone[y])
-    x_list = find_all_coordinates('X',reference)
-    s_list = find_all_coordinates('S',reference)
-    for x in x_list:
-        child1[x[0]][x[1]] = 'X'
-        child2[x[0]][x[1]] = 'X'
-    for s in s_list:
-        child1[s[0]][s[1]] = 'S'
-        child2[s[0]][s[1]] = 'S'
-    # print("child 1")
-    # print_board(child1)
-    # print("child 2")
-    # print_board(child2)
-
-    child1_score = score_solution(reference, child1)
-    child2_score = score_solution(reference, child2)
-    return [(child1, child1_score), (child2, child2_score)]
 def create_children_2(reference,mom,dad):
     reference_copy = copy.deepcopy(reference)
-    # print("copy board")
-    # print(reference_copy)
     mom_copy = copy.deepcopy(mom)
     dad_copy = copy.deepcopy(dad)
-    # print("mom")
-    # print_board(mom_copy)
-    # print("dad")
-    # print_board(dad_copy)
     child1 =copy.deepcopy(reference_copy)
     child2 =copy.deepcopy(reference_copy)
     i_temp_mom = find_all_coordinates('I',mom_copy)
