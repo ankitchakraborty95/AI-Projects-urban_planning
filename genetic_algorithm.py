@@ -199,8 +199,3 @@ def mutate_board(board):
                 board[row][col] = 'R'
                 t = False
     return board
-
-
-filepath = "/home/gyroth/PycharmProjects/Urban-Planning/urban_2.txt"
-layout = read_File(filepath)
-genetic_algorithm(layout)
