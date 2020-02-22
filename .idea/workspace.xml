@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52349bda-c91e-4824-9a76-4ab6c99694d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Urban-Planning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Urban-Planning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beta_still_working" beforeDir="false" afterPath="$PROJECT_DIR$/working.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,32 +91,48 @@
       <option name="presentableId" value="Default" />
       <updated>1582079268578</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed some bugs in mutation">
+      <created>1582399599404</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582399599404</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed some bugs in mutation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bugs in mutation" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1832" height="295" key="GridCell.Tab.0.bottom" timestamp="1582399338012">
+    <state x="3601" y="141" key="CommitChangelistDialog2" timestamp="1582399599338">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
-    <state width="1832" height="295" key="GridCell.Tab.0.bottom/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
-    <state width="1832" height="295" key="GridCell.Tab.0.center" timestamp="1582399338012">
+    <state x="3601" y="141" key="CommitChangelistDialog2/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399599338" />
+    <state width="1832" height="295" key="GridCell.Tab.0.bottom" timestamp="1582399690296">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
-    <state width="1832" height="295" key="GridCell.Tab.0.center/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
-    <state width="1832" height="295" key="GridCell.Tab.0.left" timestamp="1582399338012">
+    <state width="1832" height="295" key="GridCell.Tab.0.bottom/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399690296" />
+    <state width="1832" height="295" key="GridCell.Tab.0.center" timestamp="1582399690296">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
-    <state width="1832" height="295" key="GridCell.Tab.0.left/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
-    <state width="1832" height="295" key="GridCell.Tab.0.right" timestamp="1582399338012">
+    <state width="1832" height="295" key="GridCell.Tab.0.center/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399690296" />
+    <state width="1832" height="295" key="GridCell.Tab.0.left" timestamp="1582399690296">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
-    <state width="1832" height="295" key="GridCell.Tab.0.right/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
+    <state width="1832" height="295" key="GridCell.Tab.0.left/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399690296" />
+    <state width="1832" height="295" key="GridCell.Tab.0.right" timestamp="1582399690296">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state width="1832" height="295" key="GridCell.Tab.0.right/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399690296" />
     <state x="3486" y="232" key="SettingsEditor" timestamp="1582399210775">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
     <state x="3486" y="232" key="SettingsEditor/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399210775" />
-    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582399457554">
+    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582399652110">
       <screen x="3000" y="58" width="1920" height="1080" />
     </state>
-    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399457554" />
+    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399652110" />
   </component>
 </project>
