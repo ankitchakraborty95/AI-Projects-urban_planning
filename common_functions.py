@@ -79,7 +79,6 @@ def gen_rand_solution(board, indust, comm, resid):
             rand_x = random.randint(0, width)
         sol_board[rand_y][rand_x] = 'R'
     return sol_board
-
 def score_solution(orig_board, sol_board):
     score = 0
     x = 0
@@ -95,56 +94,73 @@ def score_solution(orig_board, sol_board):
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 10
+                #print("X score PENALTY for i", score)
                 # Commercial and residential zones within 2 tiles take a penalty of -20
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 20
+                #print("X score PENALTY for r", score)
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 20
+                #print("X score PENALTY for c", score)
+
             elif plot == 'S':
                 # Residential zones within 2 tiles gain a bonus of 10 points
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score += 10
+                #print("S score being near residential", score)
             elif plot == 'I':
                 # For each industrial tile within 2 squares, there is a bonus of 2 points
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
+                    if dist <=2 and dist!=0:
                         score += 2
+                #print("I score being near another I", score)
                 score -= 2 + orig_board[y][x]
+                #print("I score because of building", score)
+
             elif plot == 'R':
                 # For each industrial site within 3 squares there is a penalty of 5 points
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score -= 5
+                #print("R score because of penalty I", score)
                 # However, for each commercial site with 3 squares there is a bonus of 4 points
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score += 4
+                #print("R score because of commercial +", score)
                 score -= 2 + orig_board[y][x]
+                #print("R score because of building", score)
+
             elif plot == 'C':
                 # For each residential tile within 3 squares, there is a bonus of 4 points
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score += 4
+                #print("C score because of r +", score)
                 # For each commercial site with 2 squares, there is a penalty of 4 points
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
+                    if dist <=2 and dist!=0:
                         score -= 4
+                #print("C score because of c penalty", score)
                 score -= 2 + orig_board[y][x]
+                #print("C score because of building", score)
             x += 1
         x = 0
         y += 1
     return score
+
+
 
 def find_all_coordinates(building, board):
     coordinates = []
@@ -158,3 +174,11 @@ def find_all_coordinates(building, board):
         x = 0
         y += 1
     return coordinates
+def check_board(board):
+    r_coord = find_all_coordinates('R', board)
+    c_coord = find_all_coordinates('C', board)
+    i_coord = find_all_coordinates('I', board)
+    if(len(r_coord)==0 or len(i_coord)==0 or len(c_coord)==0):
+        return False
+    else:
+        return True
