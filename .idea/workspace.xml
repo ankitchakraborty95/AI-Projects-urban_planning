@@ -2,95 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52349bda-c91e-4824-9a76-4ab6c99694d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/common_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Urban-Planning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Urban-Planning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beta_still_working" beforeDir="false" afterPath="$PROJECT_DIR$/working.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1515849216">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="5654" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="5654" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common_functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <marker date="1582144831841" expanded="true" signature="988:1418" ph="..." />
-                <marker date="1582144831841" expanded="true" signature="2618:2619" ph="..." />
-                <marker date="1582144831841" expanded="true" signature="5686:5691" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
-              <folding>
-                <marker date="1582145936864" expanded="true" signature="536:541" ph="..." />
-                <marker date="1582145936864" expanded="true" signature="635:640" ph="..." />
-                <marker date="1582145936864" expanded="true" signature="981:1048" ph="..." />
-                <marker date="1582145936864" expanded="true" signature="1070:1130" ph="..." />
-                <marker date="1582145936864" expanded="true" signature="1202:1246" ph="..." />
-                <marker date="1582145936864" expanded="true" signature="1491:1492" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/urban_planning.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,15 +21,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/urban_planning.py" />
-        <option value="$PROJECT_DIR$/common_functions.py" />
-        <option value="$PROJECT_DIR$/genetic_algorithm.py" />
-      </list>
-    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
@@ -117,42 +29,11 @@
     <option name="width" value="1278" />
     <option name="height" value="601" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Urban-Planning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Urban-Planning" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="restructured.text.topic" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.working">
     <configuration name="urban_planning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Urban-Planning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,8 +55,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="working" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Urban-Planning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/working.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.working" />
         <item itemvalue="Python.urban_planning" />
       </list>
     </recent_temporary>
@@ -193,70 +96,30 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32919255" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/urban_planning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1582144831841" expanded="true" signature="988:1418" ph="..." />
-            <marker date="1582144831841" expanded="true" signature="2618:2619" ph="..." />
-            <marker date="1582144831841" expanded="true" signature="5686:5691" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/genetic_algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
-          <folding>
-            <marker date="1582145936864" expanded="true" signature="536:541" ph="..." />
-            <marker date="1582145936864" expanded="true" signature="635:640" ph="..." />
-            <marker date="1582145936864" expanded="true" signature="981:1048" ph="..." />
-            <marker date="1582145936864" expanded="true" signature="1070:1130" ph="..." />
-            <marker date="1582145936864" expanded="true" signature="1202:1246" ph="..." />
-            <marker date="1582145936864" expanded="true" signature="1491:1492" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state width="1832" height="295" key="GridCell.Tab.0.bottom" timestamp="1582399338012">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state width="1832" height="295" key="GridCell.Tab.0.bottom/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
+    <state width="1832" height="295" key="GridCell.Tab.0.center" timestamp="1582399338012">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state width="1832" height="295" key="GridCell.Tab.0.center/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
+    <state width="1832" height="295" key="GridCell.Tab.0.left" timestamp="1582399338012">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state width="1832" height="295" key="GridCell.Tab.0.left/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
+    <state width="1832" height="295" key="GridCell.Tab.0.right" timestamp="1582399338012">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state width="1832" height="295" key="GridCell.Tab.0.right/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399338012" />
+    <state x="3486" y="232" key="SettingsEditor" timestamp="1582399210775">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state x="3486" y="232" key="SettingsEditor/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399210775" />
+    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582399457554">
+      <screen x="3000" y="58" width="1920" height="1080" />
+    </state>
+    <state x="3765" y="517" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/3000.58.1920.1080/65.24.1015.1896/1080.87.1920.1080@3000.58.1920.1080" timestamp="1582399457554" />
   </component>
 </project>
