@@ -163,6 +163,7 @@ def score_solution(orig_board, sol_board):
         y += 1
     return score
 
+# Find all coordinates of instances of a building
 def find_all_coordinates(building: object, board: object) -> object:
     coordinates = []
     y = 0
@@ -177,20 +178,6 @@ def find_all_coordinates(building: object, board: object) -> object:
     return coordinates
 ###########################################################################################################################################################################
 ############################################################################################################################################################################
-# main genetic algorithm
-def genetic_algorithm(ref_layout):
-    population = gen_population(ref_layout)
-    parents = get_parents(population)
-    parent_1 = random.randint(0, len(parents)-1)
-    parent_2 = parent_1
-    while parent_2 == parent_1:
-        parent_2 = random.randint(0, len(parents)-1)
-    create_children(ref_layout[0], parents[parent_1][0], parents[parent_2][0])
-    #for x in parents:
-    #    for c in x[0]:
-    #        print(c)
-    #    print(x[1])
-    pass
 
 # Generates a random population and its score as a tuple
 def gen_population(ref_layout,pop_size):
@@ -229,131 +216,6 @@ def culling_pop(pop,culling_factor):
     for i in range(0,culling_factor):
         del pop_copy[0]
     return pop_copy
-
-def create_children_2(reference,mom,dad):
-    reference_copy = copy.deepcopy(reference)
-    mom_copy = copy.deepcopy(mom)
-    dad_copy = copy.deepcopy(dad)
-    child1 =copy.deepcopy(reference_copy)
-    child2 =copy.deepcopy(reference_copy)
-    i_temp_mom = find_all_coordinates('I',mom_copy)
-    #print("i temp mom",i_temp_mom)
-    i_temp_dad= find_all_coordinates('I', dad_copy)
-    #print("i temp dad", i_temp_dad)
-    n = random.randint(0,1)
-    if(n==0):
-        for cord in i_temp_mom:
-            #print(" I taken from mom child 1")
-            child1[cord[0]][cord[1]] = 'I'
-    else:
-        for cord in i_temp_dad:
-            #print(" I taken from dad child 1")
-            child1[cord[0]][cord[1]] = 'I'
-    n = random.randint(0, 1)
-    if (n == 0):
-        for cord in i_temp_mom:
-            #print(" I taken from mom child 2")
-            child2[cord[0]][cord[1]] = 'I'
-    else:
-        for cord in i_temp_dad:
-            #print(" I taken from dad child 2")
-            child2[cord[0]][cord[1]] = 'I'
-#############################################
-    c_temp_mom = find_all_coordinates('C', mom_copy)
-    #print("c temp mom", c_temp_mom)
-    c_temp_dad = find_all_coordinates('C', dad_copy)
-    #print("c temp dad", c_temp_dad)
-    n = random.randint(0, 1)
-    if (n == 0):
-        for cord in c_temp_mom:
-            #print("C taken from mom child 1")
-            child1[cord[0]][cord[1]] = 'C'
-    else:
-        for cord in c_temp_dad:
-            #print("C taken from dad child 1")
-            child1[cord[0]][cord[1]] = 'C'
-    n = random.randint(0, 1)
-    if (n == 0):
-        for cord in c_temp_mom:
-            #print("C taken from mom child 2")
-            child2[cord[0]][cord[1]] = 'C'
-    else:
-        for cord in c_temp_dad:
-            #print("C taken from dad child 2")
-            child2[cord[0]][cord[1]] = 'C'
-##################################################3
-    r_temp_mom = find_all_coordinates('R', mom_copy)
-    #print("r temp mom", r_temp_mom)
-    r_temp_dad = find_all_coordinates('R', dad_copy)
-    #print("r temp dad", r_temp_dad)
-    n = random.randint(0, 1)
-    if (n == 0):
-        for cord in r_temp_mom:
-            #print("R taken from mom child 1")
-            child1[cord[0]][cord[1]] = 'R'
-    else:
-        for cord in r_temp_dad:
-            #print("R taken from dad child 1")
-            child1[cord[0]][cord[1]] = 'R'
-    n = random.randint(0, 1)
-    if (n == 0):
-        for cord in r_temp_mom:
-            #print("R taken from mom child 2")
-            child2[cord[0]][cord[1]] = 'R'
-    else:
-        for cord in r_temp_dad:
-            #print("R taken from dad child 2")
-            child2[cord[0]][cord[1]] = 'R'
-    # print("child 1","mom",mom_copy,"dad",dad_copy)
-    # print_board(child1)
-    # print("child 2","mom",mom_copy,"dad",dad_copy)
-    # print_board(child2)
-    while(check_board(child1)==False):
-        mutate_board(child1)
-    while (check_board(child2) == False):
-        mutate_board(child2)
-    child1_score = score_solution(reference_copy, child1)
-    child2_score = score_solution(reference_copy, child2)
-    return [(child1, child1_score), (child2, child2_score)]
-def check_board(board):
-    r_coord = find_all_coordinates('R', board)
-    c_coord = find_all_coordinates('C', board)
-    i_coord = find_all_coordinates('I', board)
-    if(len(r_coord)==0 or len(i_coord)==0 or len(c_coord)==0):
-        return False
-    else:
-        return True
-def mutate_board(board):
-    i_cord = find_all_coordinates('I',board)
-    if(len(i_cord)==0):
-        t = True
-        while(t):
-            row = random.randint(0,(len(board)-1))
-            col = random.randint(0,(len(board[0])-1))
-            if(board[row][col]!='X' and board[row][col]!='S' and board[row][col]!='C' and board[row][col]!='R'):
-                board[row][col]='I'
-                t=False
-    c_cord = find_all_coordinates('C', board)
-    if (len(c_cord) == 0):
-        t = True
-        while (t):
-            row = random.randint(0, len(board) - 1)
-            col = random.randint(0, len(board[0]) - 1)
-            if (board[row][col] != 'X' and board[row][col] != 'S' and board[row][col] != 'I' and board[row][
-                col] != 'R'):
-                board[row][col] = 'C'
-                t = False
-    r_cord = find_all_coordinates('R', board)
-    if (len(r_cord) == 0):
-        t = True
-        while (t):
-            row = random.randint(0, len(board) - 1)
-            col = random.randint(0, len(board[0]) - 1)
-            if (board[row][col] != 'X' and board[row][col] != 'S' and board[row][col] != 'I' and board[row][
-                col] != 'C'):
-                board[row][col] = 'R'
-                t = False
-    return board
 
 def print_board(board):
     for x in board:
