@@ -97,52 +97,67 @@ def score_solution(orig_board, sol_board):
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 10
+                #print("X score PENALTY for i", score)
                 # Commercial and residential zones within 2 tiles take a penalty of -20
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 20
+                #print("X score PENALTY for r", score)
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score -= 20
+                #print("X score PENALTY for c", score)
+
             elif plot == 'S':
                 # Residential zones within 2 tiles gain a bonus of 10 points
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=2:
                         score += 10
+                #print("S score being near residential", score)
             elif plot == 'I':
                 # For each industrial tile within 2 squares, there is a bonus of 2 points
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
+                    if dist <=2 and dist!=0:
                         score += 2
+                #print("I score being near another I", score)
                 score -= 2 + orig_board[y][x]
+                #print("I score because of building", score)
+
             elif plot == 'R':
                 # For each industrial site within 3 squares there is a penalty of 5 points
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score -= 5
+                #print("R score because of penalty I", score)
                 # However, for each commercial site with 3 squares there is a bonus of 4 points
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score += 4
+                #print("R score because of commercial +", score)
                 score -= 2 + orig_board[y][x]
+                #print("R score because of building", score)
+
             elif plot == 'C':
                 # For each residential tile within 3 squares, there is a bonus of 4 points
                 for coord in r_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
                     if dist <=3:
                         score += 4
+                #print("C score because of r +", score)
                 # For each commercial site with 2 squares, there is a penalty of 4 points
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
+                    if dist <=2 and dist!=0:
                         score -= 4
+                #print("C score because of c penalty", score)
                 score -= 2 + orig_board[y][x]
+                #print("C score because of building", score)
             x += 1
         x = 0
         y += 1
@@ -167,13 +182,13 @@ def find_next_best_board(board):
     high_board = []
     succ_board = []
     dimension = np.shape(orig_board)
-    for x in range(0,dimension[1]-1):
-        for y in range(0,dimension[0]-1):
+    for x in range(0,dimension[0]):
+        for y in range(0,dimension[1]):
             # find zones
             if board[x][y] == 'I' or board[x][y] == 'R' or board[x][y] == 'C':
                 # choose one zone and calculate scores on all empty tiles.
-                for i in range(0,dimension[1]-1):
-                    for j in range(0,dimension[0]-1):
+                for i in range(0,dimension[0]):
+                    for j in range(0,dimension[1]):
                         # check if this tile is empty, empty tile is int. 
                         if is_intstring(board[i][j]):
                             # copy curernt board so it will not be affected
@@ -211,6 +226,7 @@ def find_next_best_board(board):
 # print("next high score"+ str(next_score))
 # print(next_board)
 
+
 #######################################################################################
 # Hill climbing with simulated annealing
 # T is temperature, cool is cooling factor.
@@ -219,13 +235,13 @@ def hc_annealing(orig_board):
     
     maxTime = 10
     startTime = time.time()
-    best_score_all = []
-    steps = 0
-    restart = 0
+    best_score_all = 0
+    best_board_all = 0
+   
     # keep track of best boards and their scores in all rounds of simulated annealing
     best_scores= []
     best_boards= []
-   
+    restart = 0
  
     
     while (time.time() - startTime < maxTime):
@@ -239,9 +255,13 @@ def hc_annealing(orig_board):
         best_score = current_score
         best_board = [plot[:] for plot in current_board]
 
-        T=1.0e+5000
-        cool=0.99
-        sidemoves = 50
+        T=3000
+        cool=0.98
+        steps = 0
+
+        sidemoves = 0
+        move_up = 0
+        move_down = 0
 
         #########Use simulated annealing to decide if next board should be accepted.#####
         while T > 0.1:
@@ -261,31 +281,31 @@ def hc_annealing(orig_board):
                 # update best score and board
                 best_board = [plot[:] for plot in current_board]
                 best_score = current_score
+                move_up += 1
                 # print('move up')
 
             # if next score is lower but acceptance possibility is high, accept
             elif next_score < current_score and p > random.random():
                 current_board = [plot[:] for plot in next_board]
                 current_score = next_score
+                move_down += 1
                 # print('move dwon')
 
-            # take sidemoves if they are the same.
+            # take sidemoves if they are the same. at most 500 sidemoves
             elif next_score == current_score:
-                if sidemoves > 0:
+                if sidemoves < 500:
                     current_board = [plot[:] for plot in next_board]
                     current_score = next_score
-                    sidemoves -= 1
+                    sidemoves += 1
                     # print('side walk')
-                else:
-                    print('hit plataeu')
-                    break
-
-            if time.time() - startTime > maxTime:
-                print('Timeout!')
-                break
 
             else:
+                if time.time() - startTime > maxTime:
+                    print('Timeout!')
+                #print('reached local maximun')
                 break
+            
+            
 
             # Decrease the temperature
             T = T*cool
@@ -293,28 +313,28 @@ def hc_annealing(orig_board):
             
             
         # print('total steps: ' + str(steps))
+        # print('moveups: ' +str(move_up))
+        # print('movedowns: ' +str(move_down))
+        # print('sidemoves: ' +str(sidemoves))
+     
         # restart
         restart += 1
-   
-            
-
-        # save the best score before restart.
-        best_scores.append(best_score)
-        best_boards.append(best_board)
-
-    print('Temoerature = ' + str(T))
-    print('Restart '+ str(restart) + ' times')   
 
     
+        # save the best score before restart.
+        best_scores.append(best_score)
+        best_boards.append(best_board)   
+
+    print('restarted ' + str(restart) + " times")  
     # best score of all time
     best_score_all = np.max(best_scores)
     # index of the first best score is the index of first best board because they were appended to two arrays at the same time.
     index_position = best_scores.index(best_score_all)
     best_board_all = best_boards[index_position]
-    return [best_score_all, best_board_all]
+    return [best_score_all, best_board_all, index_position]
     
 ######################################################################################
-
+    
 
 # fname = input("Enter file name : ")
 fname = 'urban_2.txt'
@@ -326,14 +346,14 @@ comm = read_File[2]
 resid = read_File[3]
 print("Original board:")
 print(orig_board)
-print("Having a nice cardio hill climbing for 10 second...")
+
+print("Having a nice hill climbing cardio for 10 second...")
 result = hc_annealing(orig_board)
 final_score = result[0]
 final_board = result[1]
 print("Highest score: " + str(final_score))
-print('First board that achieved this score:')
+print("Print board:")
 print(final_board)
-
 
 
 
