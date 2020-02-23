@@ -204,27 +204,6 @@ def find_next_best_board(board):
                                 high_board = [plot[:] for plot in succ_board]
         
     return [high_board, high_score]
-        
-
-# fname = input("Enter file name : ")
-# fname = 'urban_1.txt'
-# Original(empty) board with numbers of RIC: [board, i_max, c_max, r_max]
-# read_File = read_File(fname)
-# Original board and RIC 
-# orig_board = read_File[0]
-# indust = read_File[1]
-# comm = read_File[2]
-# resid = read_File[3]
-# print("Original board:")
-# print(orig_board)
-# sol_board = gen_rand_solution(orig_board, indust, comm, resid)
-# print('random board')
-# print(sol_board)
-# next_move = find_next_best_board(sol_board)
-# next_board = next_move[0]
-# next_score = next_move[1]
-# print("next high score"+ str(next_score))
-# print(next_board)
 
 
 #######################################################################################
