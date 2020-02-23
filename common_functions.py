@@ -121,7 +121,7 @@ def score_solution(orig_board, sol_board):
                 # For each industrial tile within 2 squares, there is a bonus of 2 points
                 for coord in i_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2 and dist!=0:
+                    if dist <=2 and not dist == 0:
                         score += 2
                 #print("I score being near another I", score)
                 score -= 2 + orig_board[y][x]
@@ -153,7 +153,7 @@ def score_solution(orig_board, sol_board):
                 # For each commercial site with 2 squares, there is a penalty of 4 points
                 for coord in c_coord:
                     dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2 and dist!=0:
+                    if dist <=2 and not dist == 0:
                         score -= 4
                 #print("C score because of c penalty", score)
                 score -= 2 + orig_board[y][x]
@@ -164,7 +164,7 @@ def score_solution(orig_board, sol_board):
     return score
 
 # Find all coordinates of instances of a building
-def find_all_coordinates(building: object, board: object) -> object:
+def find_all_coordinates(building: object, board: object):
     coordinates = []
     y = 0
     x = 0

@@ -132,7 +132,7 @@ def gen_mutation(ref, board):
     width = len(board[0]) - 1
     rand_height = random.randint(0, height)
     rand_width = random.randint(0, width)
-    while(not is_intstring(board[rand_height][rand_width])):
+    while not is_intstring(board[rand_height][rand_width]):
         rand_height = random.randint(0, height)
         rand_width = random.randint(0, width)
     n = random.randint(0, 2)
@@ -140,21 +140,27 @@ def gen_mutation(ref, board):
     c_coord = find_all_coordinates('C', board)
     r_coord = find_all_coordinates('R', board)
     if(n == 0):
-        new_board[rand_height][rand_width] = 'I'
-        for x in range(1, len(i_coord)):
-            old_indus =i_coord[x]
-            new_board[old_indus[0]][old_indus[1]] = 'I'
+        m = random.randint(0, len(i_coord)-1)
+        for x in range(0, len(i_coord)):
+            if m == x:
+               new_board[rand_height][rand_width] = 'I'
+            else:
+                old_indus = i_coord[x]
+                new_board[old_indus[0]][old_indus[1]] = 'I'
         for comm in c_coord:
             new_board[comm[0]][comm[1]] = 'C'
         for resid in r_coord:
             new_board[resid[0]][resid[1]] = 'R'
-    if (n == 1):
+    elif n == 1:
         for indus in i_coord:
             new_board[indus[0]][indus[1]] = 'I'
-        new_board[rand_height][rand_width] = 'C'
-        for x in range(1, len(c_coord)):
-            old_comm = c_coord[x]
-            new_board[old_comm[0]][old_comm[1]] = 'C'
+        m = random.randint(0, len(c_coord) - 1)
+        for x in range(0, len(c_coord)):
+            if m == x:
+                new_board[rand_height][rand_width] = 'C'
+            else:
+                old_comm = c_coord[x]
+                new_board[old_comm[0]][old_comm[1]] = 'C'
         for resid in r_coord:
             new_board[resid[0]][resid[1]] = 'R'
     else:
@@ -162,10 +168,13 @@ def gen_mutation(ref, board):
             new_board[comm[0]][comm[1]] = 'C'
         for indus in i_coord:
             new_board[indus[0]][indus[1]] = 'I'
-        new_board[rand_height][rand_width] = 'R'
-        for x in range(1, len(r_coord)):
-            old_resid = r_coord[x]
-            new_board[old_resid[0]][old_resid[1]] = 'R'
+        m = random.randint(0, len(r_coord) - 1)
+        for x in range(0, len(r_coord)):
+            if m == x:
+                new_board[rand_height][rand_width] = 'R'
+            else:
+                old_resid = r_coord[x]
+                new_board[old_resid[0]][old_resid[1]] = 'R'
     return new_board
 
 def mutate_board(board):
