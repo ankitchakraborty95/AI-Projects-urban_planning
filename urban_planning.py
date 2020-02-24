@@ -1,5 +1,6 @@
 from common_functions import *
 from genetic_algorithm import genetic_algorithm
+import hill_climbing_algorithm 
 import random
 import numpy
 import sys
