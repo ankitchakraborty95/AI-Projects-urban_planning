@@ -3,8 +3,8 @@ import copy
 import time
 from common_functions import *
 pop_size = 400
-elitism_factor = 10
-culling_factor = 3
+elitism_factor = 40
+culling_factor = 8
 time_limit = 10.0
 
 # main genetic algorithm
