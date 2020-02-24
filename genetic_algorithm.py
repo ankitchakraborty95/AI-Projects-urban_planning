@@ -2,9 +2,9 @@ import random
 import copy
 import time
 from common_functions import *
-pop_size = 400
-elitism_factor = 40
-culling_factor = 10
+pop_size = 1000
+elitism_factor = 50
+culling_factor = 20
 time_limit = 10
 
 # main genetic algorithm
