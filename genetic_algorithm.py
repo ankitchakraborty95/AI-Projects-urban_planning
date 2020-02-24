@@ -4,8 +4,8 @@ import time
 from common_functions import *
 pop_size = 400
 elitism_factor = 40
-culling_factor = 8
-time_limit = 10.0
+culling_factor = 10
+time_limit = 10
 
 # main genetic algorithm
 def genetic_algorithm(ref_layout):

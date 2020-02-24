@@ -3,7 +3,7 @@ import numpy as np
 import math
 import time
 from statistics import mean 
-
+from common_functions import *
 
 # ask for user input
 # fname = input("Enter file name : ")
@@ -13,181 +13,9 @@ start_time = time.perf_counter()
 # max time of this program is 10s
 maxTime = 10
 
-# Read a text file and generate a board representation as a 2D array
-def read_File(fname):
-    board = []
-    line_num = 0
-    i_max = 0
-    c_max = 0
-    r_max = 0
-    with open(fname, 'r', encoding='utf-8-sig') as layout:
-        for line in layout:
-            trantab = str.maketrans(dict.fromkeys(',\n'))
-            cleaned_line = line.translate(trantab)
-            line_array = [char for char in cleaned_line]
-            for x in range(0, len(line_array)):
-                if is_intstring(line_array[x]):
-                    line_array[x] = int(line_array[x])
-            if line_num == 0:
-                i_max = line_array[0]
-            elif line_num == 1:
-                c_max = line_array[0]
-            elif line_num == 2:
-                r_max = line_array[0]
-            else:
-                board.append(line_array)
-            line_num+=1
-    return [board, i_max, c_max, r_max]
-
-# checks the max width of the layout
-def check_max(layout):
-    max = 0
-    for line in layout:
-        if len(line) > max:
-            max = len(line)
-    return max
-
-# checks if the provided index is out of bounds or not
-def is_inRange (s, i):
-    try:
-        b = s[i]
-        return True
-    except IndexError:
-        return False
-
-# checks if the provided string is an int
-def is_intstring (s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
-# Should have 4 possibilities, I - Industrial,  C - Commerce, R - Residential, or no development
-def gen_rand_solution(board, indust, comm, resid):
-    sol_board = [plot[:] for plot in board]
-    height = len(board) -1
-    width = len(board[0]) -1
-    i = 0
-    for x in range(0, indust):
-        rand_y = random.randint(0, height)
-        rand_x = random.randint(0, width)
-        while not is_intstring(sol_board[rand_y][rand_x]):
-            rand_y = random.randint(0, height)
-            rand_x = random.randint(0, width)
-        sol_board[rand_y][rand_x] = 'I'
-    for x in range(0, comm):
-        rand_y = random.randint(0, height)
-        rand_x = random.randint(0, width)
-        while not is_intstring(sol_board[rand_y][rand_x]):
-            rand_y = random.randint(0, height)
-            rand_x = random.randint(0, width)
-        sol_board[rand_y][rand_x] = 'C'
-    for x in range(0, resid):
-        rand_y = random.randint(0, height)
-        rand_x = random.randint(0, width)
-        while not is_intstring(sol_board[rand_y][rand_x]):
-            rand_y = random.randint(0, height)
-            rand_x = random.randint(0, width)
-        sol_board[rand_y][rand_x] = 'R'
-    return sol_board
-
-def score_solution(orig_board, sol_board):
-    score = 0
-    x = 0
-    y = 0
-    r_coord = find_all_coordinates('R', sol_board)
-    c_coord = find_all_coordinates('C', sol_board)
-    i_coord = find_all_coordinates('I', sol_board)
-    for row in sol_board:
-        for plot in row:
-            if plot == 'X':
-                # Industrial zones within 2 tiles take a penalty of -10
-                for coord in i_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
-                        score -= 10
-                #print("X score PENALTY for i", score)
-                # Commercial and residential zones within 2 tiles take a penalty of -20
-                for coord in r_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
-                        score -= 20
-                #print("X score PENALTY for r", score)
-                for coord in c_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
-                        score -= 20
-                #print("X score PENALTY for c", score)
-
-            elif plot == 'S':
-                # Residential zones within 2 tiles gain a bonus of 10 points
-                for coord in r_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2:
-                        score += 10
-                #print("S score being near residential", score)
-            elif plot == 'I':
-                # For each industrial tile within 2 squares, there is a bonus of 2 points
-                for coord in i_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2 and dist!=0:
-                        score += 2
-                #print("I score being near another I", score)
-                score -= 2 + orig_board[y][x]
-                #print("I score because of building", score)
-
-            elif plot == 'R':
-                # For each industrial site within 3 squares there is a penalty of 5 points
-                for coord in i_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=3:
-                        score -= 5
-                #print("R score because of penalty I", score)
-                # However, for each commercial site with 3 squares there is a bonus of 4 points
-                for coord in c_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=3:
-                        score += 4
-                #print("R score because of commercial +", score)
-                score -= 2 + orig_board[y][x]
-                #print("R score because of building", score)
-
-            elif plot == 'C':
-                # For each residential tile within 3 squares, there is a bonus of 4 points
-                for coord in r_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=3:
-                        score += 4
-                #print("C score because of r +", score)
-                # For each commercial site with 2 squares, there is a penalty of 4 points
-                for coord in c_coord:
-                    dist = abs(abs(coord[0] - y) + abs(coord[1] - x))
-                    if dist <=2 and dist!=0:
-                        score -= 4
-                #print("C score because of c penalty", score)
-                score -= 2 + orig_board[y][x]
-                #print("C score because of building", score)
-            x += 1
-        x = 0
-        y += 1
-    return score
-
-def find_all_coordinates(building, board):
-    coordinates = []
-    y = 0
-    x = 0
-    for row in board:
-        for plot in row:
-            if plot == building:
-                coordinates.append((y, x))
-            x += 1
-        x = 0
-        y += 1
-    return coordinates
 
 # Move one zone and get next board with the highest score based on current board
-def find_next_best_board(board):
+def find_next_best_board(board, orig_board):
     high_score = -1000000000
     high_board = []
     succ_board = []
@@ -219,7 +47,7 @@ def find_next_best_board(board):
 #######################################################################################
 # Hill climbing with simulated annealing
 
-def hc_annealing(orig_board):
+def hc_annealing(orig_board, indust, comm, resid):
     
     best_score_all = 0
     # to save the board and time when the first highest score is achieved.
@@ -255,7 +83,7 @@ def hc_annealing(orig_board):
         while T > 0.1 and time.perf_counter() - start_time < maxTime:
             
             # check neighbor with the highest score based on this board
-            next_move = find_next_best_board(current_board)
+            next_move = find_next_best_board(current_board, orig_board)
             next_board = next_move[0]
             next_score = next_move[1]
 
@@ -305,29 +133,3 @@ def hc_annealing(orig_board):
     return [best_score_all, first_best_board, first_best_time]
     
 ######################################################################################
-
-# default file
-fname = 'urban_2.txt'
-read_File = read_File(fname)
-
-# Original board and RIC 
-orig_board = read_File[0]
-indust = read_File[1]
-comm = read_File[2]
-resid = read_File[3]
-print("Original board:")
-print(orig_board)
-
-# call hill climbing function
-print("Let's have a nice hill climbing cardio for 10 second...")
-result = hc_annealing(orig_board)
-final_score = result[0]
-first_best_board = result[1]
-first_best_time = round(result[2],3)
-
-print("At "+ str(first_best_time) + 's, ' + 'we achieved the best score ' + str(final_score) + " on this awsome urban plan: ")
-print(first_best_board)
-
-
-
-
