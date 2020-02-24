@@ -2,7 +2,7 @@ import random
 import copy
 import time
 from common_functions import *
-pop_size = 1000
+pop_size = 500
 elitism_factor = 50
 culling_factor = 20
 time_limit = 10
