@@ -40,7 +40,7 @@ def genetic_algorithm(ref_layout):
         curr_pop = next_gen_pop
         end_time = time.perf_counter()
         execution_time = end_time - start_time
-        if (time_limit-0.1 < execution_time <= time_limit+0.1):
+        if (time_limit-0.1 < execution_time):
             print("execution time", execution_time)
             run = False
 
